@@ -17,7 +17,7 @@ The individual-level genetic and phenotypic data used in this study were obtaine
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/GENIE.git
+git clone https://github.com/GufengYu520/GENIE.git
 cd GENIE
 ```
 
