@@ -7,7 +7,6 @@ snp_count = 66
 ori_list_one_hot_10 = list(range(10))
 
 def generate_mutant(sequence, snp_pos, n=1):
-    """对一条序列进行突变，产生n条突变序列，n最多为9"""
     one_hot_position = np.where(sequence[snp_pos] == 1)[0].item()
     tmp_list = copy.deepcopy(ori_list_one_hot_10)
     tmp_list.remove(one_hot_position)
@@ -27,8 +26,7 @@ def generate_mutant(sequence, snp_pos, n=1):
 
 
 def generate_mutants(sequences, n=1):
-    """改变SNP序列中的位点状态，10种情况中随机选择n种"""
-    sample_count = len(sequences) # 总样本数/人数
+    sample_count = len(sequences)
     mutant_seqs = []
 
     print("Start mutant:")
@@ -64,7 +62,7 @@ if __name__ == '__main__':
     X_data, Y_label = np.load('../data/minidata_x_torch.npy'), np.load('../data/minilabel_y_torch.npy')
     print("Data collected!")
 
-    n = 3  # 单个位点的变异次数
+    n = 3
     mutant_X_data = generate_mutants(X_data, n)
     test = mutant_X_data[1]
 

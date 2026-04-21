@@ -40,7 +40,6 @@ def compute_importance(model, sequences,
 
 
 def generate_mutant(sequence, snp_pos, n=1):
-    """对一条序列进行突变，产生n条突变序列，n最多为15"""
     one_hot_position = np.where(sequence[snp_pos] == 1)[0].item()
     tmp_list = copy.deepcopy(ori_list_one_hot)
     tmp_list.remove(one_hot_position)
@@ -58,8 +57,7 @@ def generate_mutant(sequence, snp_pos, n=1):
 
 
 def generate_mutants(sequences, n=1):
-    """改变SNP序列中的位点状态，16种情况中随机选择n种"""
-    sample_count = len(sequences) # 总样本数/人数
+    sample_count = len(sequences)
     mutant_seqs = []
 
     for i in range(sample_count):

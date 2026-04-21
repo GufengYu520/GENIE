@@ -24,7 +24,6 @@ def adj_to_weight(adj, attr=0.3):
 
 
 def sample_to_graph(features, adjs, graph_param):
-    """将原始数据转化为graph"""
     sample_count = len(features)
     graphs = []
 
@@ -48,7 +47,6 @@ def sample_to_graph(features, adjs, graph_param):
 
 
 def vec_to_node_feat(feat, vecPath='./data/kmer/SNP_9mer_30.npy'):
-    """add kmer embed"""
     vectors = np.load(vecPath)
     snp_count = len(feat)
 
@@ -91,21 +89,9 @@ class SNPDataset(DGLDataset):
         self.graphs = sample_to_graph(self.features, self.adjs, self.graph_param)
 
     def __getitem__(self, idx):
-        """ 通过idx获取对应的图和标签
-
-        Parameters
-        ----------
-        idx : int
-            Item index
-
-        Returns
-        -------
-        (dgl.DGLGraph, Tensor)
-        """
         return self.graphs[idx], self.label[idx]
 
     def __len__(self):
-        """数据集中图的数量"""
         return len(self.graphs)
 
 

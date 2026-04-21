@@ -53,13 +53,12 @@ def compute_importance(model, sequences):
 
 
 def main():
-    # 加载数据
     print("Collecting data!")
     X_data, Y_label = np.load('./data/minidata_x_torch.npy'), np.load('./data/minilabel_y_torch.npy')
     print("Data collected!")
     sample_count = len(X_data)
 
-    n = 9 # 单个位点的变异次数
+    n = 9
     mutant_X_data = util.generate_mutants(X_data, n)
     print(mutant_X_data.shape)
 
