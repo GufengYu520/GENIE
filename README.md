@@ -6,7 +6,7 @@ GENIE is a two-stage interpretable deep learning framework designed to reveal hi
 
 ## Main Architecture
 
-![](D:\github\GENIE\model.svg)
+![](model.svg)
 
 ## Data Sources
 
